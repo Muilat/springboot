@@ -1,0 +1,62 @@
+server:
+  port: 9099
+
+spring:
+
+  datasource:
+#    url: jdbc:h2:~/test
+#    driver-class-name: org.h2.Driver
+
+#    username: sa
+#    password:
+#
+    url: jdbc:mysql://localhost:3306/opsan1_auth?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+
+  application:
+    name: profile
+
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: gmail@gmail.com
+    password: password
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false
+
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+#  h2:
+#    console:
+#      enabled: true
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        type: trace
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:9191/oauth/check_token
+      id: profile
+    client:
+      client-id: mobile
+      client-secret: pin
+      user-authorization-uri: http://localhost:9191/oauth/authorize
+      access-token-uri: http://localhost:9191/oauth/token
