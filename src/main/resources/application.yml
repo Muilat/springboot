@@ -2,6 +2,8 @@ server:
   port: 9099
 
 spring:
+  profiles:
+    active: prod
 
   datasource:
 #    url: jdbc:h2:~/test
@@ -63,3 +65,8 @@ security:
       access-token-uri: http://localhost:9191/oauth/token
 
 input: file:C:/Users/PolarisDigitech/Documents/workspace/demo/src/main/resources/data.csv
+
+#logging
+logging:
+  file: my-application.log
+#  level: info
