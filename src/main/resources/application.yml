@@ -10,7 +10,7 @@ spring:
 #    username: sa
 #    password:
 #
-    url: jdbc:mysql://localhost:3306/opsan1_auth?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/opsan1_demo?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,7 +22,7 @@ spring:
   mail:
     default-encoding: UTF-8
     host: smtp.gmail.com
-    username: gmail@gmail.com
+    username: muilat.champ@gmail.com
     password: password
     port: 587
     properties:
@@ -38,18 +38,19 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true
         format_sql: true
-#  h2:
-#    console:
-#      enabled: true
-#logging:
-#  level:
-#    org:
-#      hibernate:
-#        type: trace
+
+
+  batch:
+    job:
+      enabled: false
+#    initialize-schema: always
+
+# Auth server setting
 security:
   oauth2:
     resource:
@@ -60,3 +61,5 @@ security:
       client-secret: pin
       user-authorization-uri: http://localhost:9191/oauth/authorize
       access-token-uri: http://localhost:9191/oauth/token
+
+input: file:C:/Users/PolarisDigitech/Documents/workspace/demo/src/main/resources/data.csv
