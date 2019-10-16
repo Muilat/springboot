@@ -27,7 +27,7 @@ public class DemoApplication extends ResourceServerConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
 		http
 				.authorizeRequests()
-				.antMatchers("/users/add")
+				.antMatchers("/users/add", "/h2-console","/users/")
 				.permitAll()
 				.and()
 				.authorizeRequests()

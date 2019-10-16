@@ -85,6 +85,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getByUsername(String username) {
+        Optional<User> user = userRepository.getUserByUsername(username);
+        List<User> p = userRepository.getUsersByUsernameContaining("m");
+        System.out.println("total m:"+p.size());
+        return user.orElseThrow(()->new ObjectNotFoundException("User not found"));
+    }
+
+    @Override
     public User update(User user) {
         return null;
     }
