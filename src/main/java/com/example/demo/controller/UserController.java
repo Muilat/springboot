@@ -74,7 +74,7 @@ public class UserController {
     public ResponseEntity<User> getCurrentUser(Principal principal){
 //        User userDetails = (User) principal;
 
-        System.out.println("Ussername ".concat(principal.getName()));
+//        System.out.println("Ussername ".concat(principal.getName()));
 
 
         User user = userService.getByUsername(principal.getName());

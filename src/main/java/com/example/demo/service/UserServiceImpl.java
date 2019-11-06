@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService {
     public User getByUsername(String username) {
         Optional<User> user = userRepository.getUserByUsername(username);
         List<User> p = userRepository.getUsersByUsernameContaining("m");
-        System.out.println("total m:"+p.size());
+//        System.out.println("total m:"+p.size());
         return user.orElseThrow(()->new ObjectNotFoundException("User not found"));
     }
 
